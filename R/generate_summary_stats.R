@@ -8,7 +8,7 @@
 #' @param data Input data frame, or data frame extension (eg: tibble). REQUIRES: no NULL variables
 #' @param group_var String containing name of variable to group by.
 #'
-#' @return A data frame with n + 2 columns, where n is the number of columns in the input data frame. 
+#' @return A data frame with n + 2 columns, where n is the number of columns in the input data frame.
 #'   The first column (group_var) Contains the unique values by which we group the data. (see group_by() dplyr function)
 #'   The second column (count) lists the number of observations for each class from the input data frame.
 #'   The third column (percentage) depicts what percentage of all original observations are represented by said row.
@@ -16,9 +16,9 @@
 #'
 #' @export
 #'
-#TODO
 #' @examples
-#' 
+#' generate_summary_stats (data = df, group_var = "var")
+#'
 generate_summary_stats <- function(data, group_var) {
     num_obs <- nrow(data)
     summary <- data %>%

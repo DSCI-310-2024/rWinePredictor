@@ -1,12 +1,16 @@
 Package: rWinePredictor
-Title: What the Package Does (One Line, Title Case)
+Title: Helps with performing linear regression analysis
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Sid", "Ahuja", , "sidahuja@gmail.com", role = c("aut", "cre"))
+Description: Package contains 3 functions. These functions can be used to help 
+  with performing linear regression analysis. Functions aid with - (1) 
+  Generating summary tables split across data frames, split by factor in target 
+  column, (2) Generating scatterplots where points are connected by a straight 
+  line, and (3) Generating model statistics and compiling them into one table. 
+  This package was intended mainly for the prediction of wine quality found in 
+  https://github.com/DSCI-310-2024/DSCI-310-Group-18_wine-quality-predictor
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1

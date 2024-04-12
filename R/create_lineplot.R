@@ -15,15 +15,15 @@
 #'
 #' @return A ggplot lineplot with points.
 #'  The lineplot should have points corresponding to the coordinates of the continuous numerical columns inputted into the funtion.
-#'  A line should pass through the points. 
+#'  A line should pass through the points.
 #'  The x and y axis labels with show if a label is specified.
 #'  The title should be a concatenation of axis labels if set as TRUE.
-#' 
+#'
 #' @export
 #'
 #' @examples
 #' create_lineplot(df = data, x = time, y = height,
-#'                  x_lab = "time", y_labe = height,
+#'                  x_lab = "time", y_lab = height,
 #'                  title = TRUE, font_size = 13)
 #'
 create_lineplot <- function(df,
