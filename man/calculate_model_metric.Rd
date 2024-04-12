@@ -8,8 +8,7 @@ calculate_model_metric(
   predictions,
   truth_col = "",
   predictions_col = "",
-  metric = "",
-  event_level = "first"
+  metric = ""
 )
 }
 \arguments{
@@ -20,8 +19,6 @@ calculate_model_metric(
 \item{predictions_col}{A vector containing the prediction values}
 
 \item{metric}{The metric to calculate (e.g., "accuracy", "precision", "recall")}
-
-\item{event_level}{The event level for precision and recall calculations. Default is "first".}
 }
 \value{
 The calculated value of the specified metric
@@ -32,7 +29,6 @@ for a given set of predictions and ground truth values.
 }
 \examples{
 df = yardstick::two_class_example
-calculate_model_metric(df, "truth", "predicted", "accuracy",
-event_level = "first")
+calculate_model_metric(df, "truth", "predicted", "accuracy")
 
 }
