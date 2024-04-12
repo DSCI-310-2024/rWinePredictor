@@ -43,8 +43,10 @@ optional title. Font size is adjustable. X axis values should not repeat
 and should be monotomic and unique valued.
 }
 \examples{
+data = data.frame("time" = c(0.2, 0.4, 0.8, 1.6, 3.2),
+"height" = c(0, 15, 30, 45, 60))
 create_lineplot(df = data, x = time, y = height,
-                 x_lab = "time", y_lab = height,
+                 x_lab = "time", y_lab = "height",
                  title = TRUE, font_size = 13)
 
 }

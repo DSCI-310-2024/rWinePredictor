@@ -17,16 +17,17 @@
 #' @export
 #'
 #' @examples
+#' df = data.frame("x" = c(0.2, 0.4, 0.8, 1.6, 3.2),
+#'   "var" = c("a","b", "a", "b", "a"))
 #' generate_summary_stats (data = df, group_var = "var")
 #'
 generate_summary_stats <- function(data, group_var) {
     num_obs <- nrow(data)
-    summary <- data %>%
-        group_by({{group_var}}) %>%
-            summarize(
-                count = n(),
-                percentage = n() / num_obs * 100,
-                across(!c(count, percentage), .fns = mean, .names = "{.col}_avg"))
-
+    summary <- data |>
+      dplyr::group_by({{group_var}}) |>
+      dplyr::summarize(
+                count = dplyr::n(),
+                percentage = dplyr::n() / num_obs * 100,
+                dplyr::across(!c(count, percentage), .fns = mean, .names = "{.col}_avg"))
     return(summary)
 }

@@ -25,6 +25,8 @@ Group percentage out of all observations, and
 Mean averages for all other included variables.
 }
 \examples{
+df = data.frame("x" = c(0.2, 0.4, 0.8, 1.6, 3.2),
+  "var" = c("a","b", "a", "b", "a"))
 generate_summary_stats (data = df, group_var = "var")
 
 }
