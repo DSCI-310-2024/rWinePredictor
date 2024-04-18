@@ -11,6 +11,34 @@ when building classifiers. This package was originally inteded for a
 wine quality classifier based on physical and chemical properties of the
 wine but functions in this package can be used in other models.
 
+## Functions included
+
+- `generate_summary_stats`: Groups input data by factors of target
+  variable and summarizes counts and means for each class across all
+  parameters in the dataset.
+
+- `create_lineplot`: Creates a line plot with data points (scatter
+  plot + line plot) and has the option to include the axis titles and
+  plot title.
+
+- `calculate_model_metrics`: Calculates a specified model metric (e.g.,
+  accuracy, precision, recall) for a given set of predictions and ground
+  truth values.
+
+## Place within the R package ecosystem
+
+`rWinePredictor` is similar to other R packages but does away with long
+codeblocks and streamlines the process of building classification
+models. Firstly, `generate_summary_stats` uses `dplyr`’s `group_by` and
+`summarize` but it calculates the mean of all columns in the set for all
+facts in the target column. This is an elegant and easy-to-use solution
+for EDA. Additionally, `create_lineplot` is built using `ggplot2` but
+also creates line plots in a simple manner, where a user has to just
+specify the dataset, x and y columns, and whether to include a title or
+not. Lastly, `calculate_model_metrics` allows users to quickly assess
+their models; it is built using `parsnip` but allows for an easy
+solution when users want to benchmark their models quickly.
+
 ## Installation
 
 You can install the development version of rWinePredictor from
