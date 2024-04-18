@@ -1,0 +1,94 @@
+---
+title: "rWinePredictor-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rWinePredictor-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Welcome to rWinePredictor!
+
+The `rWinePredictor` package is designed to assist with the building and testing of binary classification models. While originally created to predict wine quality using wine properties, this package can be used in other classification models. The functions included allow users to:
+
+- Conduct EDA grouped by the classes in the target factor
+
+- Create tailored line plots
+
+- Calculate model statistics (accuracy, precision, and recall) quickly and easily
+
+To get started, we load the packages `rWinePredictor` and `dplyr`:
+
+```{r setup}
+library(dplyr)
+library(rWinePredictor)
+```
+
+## Data 
+
+The original dataset used in the analysis of wine quality can be found [here](https://archive.ics.uci.edu/dataset/186/wine+quality). However, to emphasize the universal usage of this package, we will use the `mtcars` dataset in this vignette. Because this is a binary classification problem, we will first identify the target fetaure (in this case, number of cylinders), filter for only 4 or 6 cyclinder cars, drop the car name index and other factor features, and convert the cyclinder column to a factor.
+
+```{r load data}
+df <- mtcars %>%
+  filter(cyl < 8) %>%
+  select(mpg, cyl, disp, hp, drat, wt, qsec) %>%
+  mutate(cyl = as.factor(cyl))
+
+rownames(df) <- NULL
+
+head(df)
+```
+
+## generate_summary_stats
+
+As part of EDA, we may want to get the number of 4 and 6 cylinder cars in the dataset along with the mean values for feature of each cyclinder class. To do so, we can use `generate_summary_stats` as seen below:
+
+```{r summary}
+eda <- generate_summary_stats(df, cyl)
+eda
+```
+
+The resulting summary table provides us with some insight about the dataset. We can see that it has grouped the classes in our specified target column, counted the observations (in `count`) and then proceeded to calculate the mean of all the features for both cylinder classes.
+
+## create_lineplot
+
+This function was initially built to compare accuracies across different k values for a K-NN model. However, it has many purposes and can be used to plot any numerical value on the y-axis against any continuous numerical value, like time on the x-axis. Using a toy dataframe and `create_lineplot`, we can plot the accuracy against the k-value.
+
+```{r lineplot, fig.width=7, fit.length=7}
+acc_k <- data.frame(
+  acc = c(0.6, 0.75, 0.73, 0.7, 0.68, 0.62),
+  k_val = c(1, 6, 11, 16, 21, 26))
+
+lp <- create_lineplot(acc_k, k_val, acc)
+
+lp
+```
+
+## calculate_model_metric
+
+After constructing the binary classification model, users may want to calculate either the accuracy, precision, or recall. Using `calculate_model_metric` makes this easy and quick. To demonstrate, we will use the two class dataset from the parsnip package.
+
+From the scatterplot, we can see that there is some correlation between `width` and `injuries`. However, this correlation does not seem to be very strong. Despite this small correlation, we will create a linear regression model using `width` as a predictor and `injuries` as the target. To do this, we can use the function `fit_linear_model`. 
+
+```{r metrics}
+library(yardstick)
+
+preds_df = yardstick::two_class_example
+
+accuracy <- calculate_model_metric(preds_df, truth_col='truth', predictions_col='predicted', metric="accuracy")
+precision <- calculate_model_metric(preds_df, truth_col='truth', predictions_col='predicted', metric="precision")
+recall <- calculate_model_metric(preds_df, truth_col='truth', predictions_col='predicted', metric="recall")
+
+paste("Accuracy = ", accuracy)
+paste("Precision = ", precision)
+paste("Recall = ", recall)
+```
+
+This document has highlighted all the functions of the `rWinePredictor` package. You are now set to use this package in your analysis.
