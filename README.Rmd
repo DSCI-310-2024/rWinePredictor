@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # rWinePredictor
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/sidahuja1/rWinePredictor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sidahuja1/rWinePredictor/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The goal of rWinePredictor is to provide functions that may be useful when building classifiers. This package was originally inteded for a wine quality classifier based on physical and chemical properties of the wine but functions in this package can be used in other models.

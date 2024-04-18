@@ -4,8 +4,6 @@
 # rWinePredictor
 
 <!-- badges: start -->
-
-[![R-CMD-check](https://github.com/sidahuja1/rWinePredictor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sidahuja1/rWinePredictor/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of rWinePredictor is to provide functions that may be useful
