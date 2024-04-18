@@ -105,4 +105,7 @@ library(yardstick)
 model_df = yardstick::two_class_example
 
 accuracy <- calculate_model_metric(model_df, truth_col='truth', predictions_col='predicted', metric="accuracy")
+
+accuracy
+#> [1] 0.838
 ```
