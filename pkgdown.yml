@@ -1,0 +1,10 @@
+pandoc: 3.1.11
+pkgdown: 2.0.8
+pkgdown_sha: ~
+articles:
+  rWinePredictor-vignette: rWinePredictor-vignette.html
+last_built: 2024-04-19T07:50Z
+urls:
+  reference: https://dsci-310-2024.github.io/rWinePredictor/reference
+  article: https://dsci-310-2024.github.io/rWinePredictor/articles
+
