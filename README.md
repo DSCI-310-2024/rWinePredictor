@@ -4,6 +4,10 @@
 # rWinePredictor
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/DSCI-310-2024/rWinePredictor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DSCI-310-2024/rWinePredictor/actions/workflows/R-CMD-check.yaml)
+
+[![codecov](https://codecov.io/gh/DSCI-310-2024/rWinePredictor/graph/badge.svg?token=K8G37Cc9ZX)](https://codecov.io/gh/DSCI-310-2024/rWinePredictor)
 <!-- badges: end -->
 
 The goal of rWinePredictor is to provide functions that may be useful
