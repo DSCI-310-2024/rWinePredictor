@@ -1,6 +1,6 @@
 Package: rWinePredictor
 Title: Helps with performing binary classification analysis
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Sid", "Ahuja", , "sidahuja@gmail.com", role = c("aut", "cre"))
 Description: Package contains 3 functions. These functions can be used to help 
@@ -14,7 +14,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-URL: https://github.com/sidahuja1/rWinePredictor
+URL: https://github.com/sidahuja1/rWinePredictor, https://dsci-310-2024.github.io/rWinePredictor/
 BugReports: https://github.com/sidahuja1/rWinePredictor/issues
 Imports: 
     dplyr (>= 1.1.4),
